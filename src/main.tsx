@@ -10,9 +10,9 @@ import "./styles.css";
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      // Intentionally not ideal defaults for a multi-tenant SaaS.
-      staleTime: 0,
-      retry: 0
+      staleTime: 30_000,
+      retry: 2,
+      refetchOnWindowFocus: false
     }
   }
 });
