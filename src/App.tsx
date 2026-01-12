@@ -6,11 +6,15 @@ import type { CompanyId } from "./types";
 
 function Shell() {
   const { companyId, setCompanyId, permissions, permissionFlags } = useAuth();
+  const selectedCompanyName =
+    COMPANIES.find((company) => company.id === companyId)?.name ?? "Company";
 
   return (
     <div className="container">
       <div className="row" style={{ marginBottom: 12 }}>
-        <h2 style={{ margin: 0 }}>HCMatrix – Employee List</h2>
+        <h2 style={{ margin: 0 }}>
+          {selectedCompanyName} – Employee List
+        </h2>
         <span className="spacer" />
         <label className="muted">Company:</label>
         <select
